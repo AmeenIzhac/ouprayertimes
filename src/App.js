@@ -1,23 +1,53 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
+import prayerTimes from './prayer_times.json'; // Make sure the path matches your file structure
 import './App.css';
 
 function App() {
-  return (
+  const [todayTimes, setTodayTimes] = useState(null);
+
+  useEffect(() => {
+    const today = new Date();
+    const day = String(today.getDate()).padStart(2, '0');
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const key = `${day}${month}`;
+
+    if (prayerTimes[key]) {
+      setTodayTimes(prayerTimes[key]);
+    }
+  }, []);
+
+  if (!todayTimes) {
+    return <p>Loading prayer times...</p>;
+  }
+
+  return (<div>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='time'>
+          <h1 className="big">Fajr:</h1>
+          <h1 className="big">{todayTimes.Fajr}</h1>
+      </div>
+          <br/>
+      <div className='time'>
+          <h1 className="big">Dhuhr:</h1>
+          <h1 className="big">{todayTimes.Dhuhr}</h1>
+      </div>
+          <br/>
+      <div className='time'>
+          <h1 className="big">Asr:</h1>
+          <h1 className="big">{todayTimes.Asr}</h1>
+      </div>
+          <br/>
+      <div className='time'>
+          <h1 className="big">Maghrib:</h1>
+          <h1 className="big">{todayTimes.Maghrib}</h1>
+      </div>
+          <br/>
+      <div className='time'>
+          <h1 className="big">Isha:</h1>
+          <h1 className="big">{todayTimes.Isha}</h1>
+      </div>
+          <br/>
+    </div>
     </div>
   );
 }
