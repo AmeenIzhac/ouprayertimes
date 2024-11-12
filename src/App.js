@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import prayerTimes from './prayer_times.json'; // Make sure the path matches your file structure
+import prayerTimes from './prayer_times.json';
 import './App.css';
 
 function App() {
