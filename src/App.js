@@ -20,34 +20,33 @@ function App() {
     return <p>Loading prayer times...</p>;
   }
 
-  return (<div>
-
+  return (
+  <div>
     <div className="container1">
-    <div className="container2">
-      <div className='time'>
+      <div className="container2">
+        <div className='time'>
           <h1 className="big">Fajr</h1>
           <h1 className="big">{todayTimes.Fajr}</h1>
-      </div>
-      <div className='time'>
+        </div>
+        <div className='time'>
           <h1 className="big">Dhuhr</h1>
           <h1 className="big">{todayTimes.Dhuhr}</h1>
-      </div>
-      <div className='time'>
+        </div>
+        <div className='time'>
           <h1 className="big">Asr</h1>
           <h1 className="big">{todayTimes.Asr}</h1>
-      </div>
-      <div className='time'>
+        </div>
+        <div className='time'>
           <h1 className="big">Maghrib</h1>
           <h1 className="big">{todayTimes.Maghrib}</h1>
-      </div>
-      <div className='time'>
+        </div>
+        <div className='time'>
           <h1 className="big">Isha</h1>
           <h1 className="big">{todayTimes.Isha}</h1>
+        </div>
       </div>
     </div>
-    </div>
-    <div className='spacer'/>
-    </div>
+  </div>
   );
 }
 
