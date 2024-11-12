@@ -6,7 +6,8 @@
   align-items: center;
   height: 100vh;
   overflow: hidden;
-
+  padding-top: 20%;
+  padding-bottom: 20%;
 }
 
 .big {
