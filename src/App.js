@@ -22,7 +22,6 @@ function App() {
 
   return (<div>
     <div className="App">
-    <div className="dw">
       <div className='time'>
           <h1 className="big">Fajr</h1>
           <h1 className="big">{todayTimes.Fajr}</h1>
@@ -48,7 +47,6 @@ function App() {
           <h1 className="big">{todayTimes.Isha}</h1>
       </div>
           <br/>
-    </div>
     </div>
     </div>
   );
