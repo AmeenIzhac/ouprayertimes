@@ -5,6 +5,15 @@ import './App.css';
 function App() {
   const [todayTimes, setTodayTimes] = useState(null);
 
+  const roundToNearest15 = (time) => {
+    const [hours, minutes] = time.split(':').map(Number);
+    const roundedMinutes = Math.ceil(minutes / 15) * 15;
+    if (roundedMinutes === 60) {
+      return `${String(hours + 1).padStart(2, '0')}:00`;
+    }
+    return `${String(hours).padStart(2, '0')}:${String(roundedMinutes).padStart(2, '0')}`;
+  };
+
   useEffect(() => {
     const today = new Date();
     const day = String(today.getDate()).padStart(2, '0');
@@ -12,7 +21,13 @@ function App() {
     const key = `${day}${month}`;
 
     if (prayerTimes[key]) {
-      setTodayTimes(prayerTimes[key]);
+      setTodayTimes({
+        ...prayerTimes[key],
+        Fajr: roundToNearest15(prayerTimes[key].Fajr),
+        Dhuhr: roundToNearest15(prayerTimes[key].Dhuhr),
+        Asr: roundToNearest15(prayerTimes[key].Asr),
+        Isha: roundToNearest15(prayerTimes[key].Isha),
+      });
     }
   }, []);
 
