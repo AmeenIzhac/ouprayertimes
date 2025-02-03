@@ -51,8 +51,6 @@ for line in data.strip().split("\n"):
     }
     prayer_times[ddmm_key] = times
 
-print(prayer_times["0105"])
-
 import json
 
 with open("prayer_times.json", "w") as json_file:
